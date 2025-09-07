@@ -3,6 +3,7 @@ trigger:
 
 variables:
   buildConfiguration: 'Release'
+  jmeterVersion: '5.6.3'
 
 stages:
 - stage: 'Build'
