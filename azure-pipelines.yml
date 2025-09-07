@@ -26,6 +26,18 @@ stages:
       inputs:
         version: '$(dotnetSdkVersion)'
 
+    # before you run npm
+    - task: NodeTool@0
+      displayName: "Use Node.js 18.x (compatible with node-sass)"
+      inputs:
+        versionSpec: '18.x'
+
+    - script: node --version && npm --version
+      displayName: "Show Node/npm versions"
+
+    - script: npm ci
+      displayName: "Install deps (clean)"
+
     - task: Npm@1
       displayName: 'Run npm install'
       inputs:
